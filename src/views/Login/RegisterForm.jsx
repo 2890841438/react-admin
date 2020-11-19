@@ -3,6 +3,9 @@ import React, { Component, Fragment } from 'react';
 import { Form, Input, Button, Row, Col } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
+// validate
+import { validate_password } from '../../utils/validate'
+
 class RegisterForm extends Component {
   constructor(props) {
     super(props);
@@ -35,7 +38,12 @@ class RegisterForm extends Component {
               <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="用户名" />
             </Form.Item>
 
-            <Form.Item name="password" rules={[{ required: true, message: '请输入密码!' }]} >
+            <Form.Item name="password" rules={
+              [
+                { required: true, message: '请输入密码!' },
+                { pattern: validate_password, message: '密码不符合要求！' }
+              ]
+            }>
               <Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="密码" />
             </Form.Item>
 

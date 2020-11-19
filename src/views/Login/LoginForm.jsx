@@ -3,6 +3,9 @@ import React, { Component, Fragment } from 'react';
 import { Form, Input, Button, Row, Col } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
+// api
+import { login } from '../../api/account';
+
 class LoginForm extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +14,9 @@ class LoginForm extends Component {
 
   onFinish = values => {
     console.log('Received values of form: ', values);
+    login(values).then(res => {
+      console.log(res)
+    })
   };
 
   toggleForm = () => {
