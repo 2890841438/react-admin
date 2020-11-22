@@ -12,8 +12,9 @@ class LoginForm extends Component {
     this.state = {}
   };
 
+  // 登录
   onFinish = values => {
-    console.log('Received values of form: ', values);
+    console.log('Received values of form: ', process.env.NODE_ENV);
     login(values).then(res => {
       console.log(res)
     })
